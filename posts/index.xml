@@ -13,7 +13,9 @@
       <pubDate>Mon, 06 Mar 2023 23:31:57 +0800</pubDate>
       
       <guid>https://scncyyc.github.io/posts/my-first-post/</guid>
-      <description>hello world!</description>
+      <description>hello world!
+废了好大劲，终于把博客搭起来了。
+后面的目标是，写一篇搭建博客的教程和我遇到的问题，以及尝试一下用CDN加速。</description>
     </item>
     
   </channel>

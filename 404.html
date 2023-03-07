@@ -27,6 +27,8 @@
 
 
 
+
+
 <html
   class="not-ready text-sm lg:text-base"
   style="--bg: #faf6f1"
@@ -78,6 +80,8 @@
 
   
   <link rel="preload" as="image" href="https://scncyyc.github.io/github.svg" />
+  
+  <link rel="preload" as="image" href="https://scncyyc.github.io/rss.svg" />
   
 
   
@@ -184,6 +188,28 @@
   >
     
     
+    <nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-6">
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/posts/"
+        >文章</a
+      >
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/categories/"
+        >分类</a
+      >
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/tags/"
+        >标签</a
+      >
+      
+    </nav>
+    
 
     
     <nav
@@ -198,6 +224,16 @@
         rel="me"
       >
         github
+      </a>
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./rss.svg)"
+        href="https://scncyyc.github.io/index.xml"
+        target="_blank"
+        rel="alternate"
+      >
+        rss
       </a>
       
     </nav>
