@@ -14,9 +14,9 @@
       
       <guid>https://scncyyc.github.io/posts/how-to-build-blog/</guid>
       <description>如何搭建一个基于Hugo和Github Page的博客 要求：1、在电脑上安装git。2、注册一个Github账号
-[简明git使用教程](git 使用简易指南 (bootcss.com))
+简明git使用教程
 1.安装hugo 首先，我默认大家使用的都是Windows系统，以下内容都只针对Windows系统。
-在[Hugo Release](Releases · gohugoio/hugo (github.com))下载Windows版的hugo extended压缩包，例如hugo_extended_0.111.2_windows-amd64.zip
+在Hugo Release下载Windows版的hugo extended压缩包，例如hugo_extended_0.111.2_windows-amd64.zip
 题外话，这里出现的amd64和arm64是什么意思呢
 解答：这是CPU架构的名字，具体来讲，常见的电脑CPU（比如Intel的CORE系列）都是amd64架构，常见的手机CPU（比如高通晓龙，联发科天玑）都是arm64架构。极少数使用windows平板电脑使用arm64架构芯片
 在Git Bash中使用$uname -a$命令，如果输出中有关键词 aarch64 就是 arm64 架构，有关键词 x86_64 就是 amd64 架构
@@ -29,7 +29,8 @@ hugo new site blog 打开blog文件夹，使用Git Bash，完成git的初始化
 git init 订阅你喜欢的主题到本地，例如我使用的主题——paper
 git submodule add https://github.com/nanxiaobei/hugo-paper themes/paper Hugo 主题商店地址: Hugo 官方主题商店、Hugo 中文主题商店。
 打开D:\blog下的config.toml文件，将
-theme = &amp;#34;&amp;#34; 改成</description>
+theme = &amp;#34;&amp;#34; 改成
+theme = &amp;#34;paper&amp;#34; paper即为你选择的主题名称</description>
     </item>
     
     <item>

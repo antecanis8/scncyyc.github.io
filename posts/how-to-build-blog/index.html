@@ -52,9 +52,9 @@
   
   
   <meta name="description" content="如何搭建一个基于Hugo和Github Page的博客 要求：1、在电脑上安装git。2、注册一个Github账号
-[简明git使用教程](git 使用简易指南 (bootcss.com))
+简明git使用教程
 1.安装hugo 首先，我默认大家使用的都是Windows系统，以下内容都只针对Windows系统。
-在[Hugo Release](Releases · gohugoio/hugo (github.com))下载Windows版的hugo extended压缩包，例如hugo_extended_0.111.2_windows-amd64.zip
+在Hugo Release下载Windows版的hugo extended压缩包，例如hugo_extended_0.111.2_windows-amd64.zip
 题外话，这里出现的amd64和arm64是什么意思呢
 解答：这是CPU架构的名字，具体来讲，常见的电脑CPU（比如Intel的CORE系列）都是amd64架构，常见的手机CPU（比如高通晓龙，联发科天玑）都是arm64架构。极少数使用windows平板电脑使用arm64架构芯片
 在Git Bash中使用$uname -a$命令，如果输出中有关键词 aarch64 就是 arm64 架构，有关键词 x86_64 就是 amd64 架构
@@ -67,7 +67,8 @@ hugo new site blog 打开blog文件夹，使用Git Bash，完成git的初始化
 git init 订阅你喜欢的主题到本地，例如我使用的主题——paper
 git submodule add https://github.com/nanxiaobei/hugo-paper themes/paper Hugo 主题商店地址: Hugo 官方主题商店、Hugo 中文主题商店。
 打开D:\blog下的config.toml文件，将
-theme = &#34;&#34; 改成" />
+theme = &#34;&#34; 改成
+theme = &#34;paper&#34; paper即为你选择的主题名称" />
   <meta name="author" content="scncyyc&#39;blog" />
   
 
@@ -121,9 +122,9 @@ theme = &#34;&#34; 改成" />
   
   <meta property="og:title" content="How to Build Blog" />
 <meta property="og:description" content="如何搭建一个基于Hugo和Github Page的博客 要求：1、在电脑上安装git。2、注册一个Github账号
-[简明git使用教程](git 使用简易指南 (bootcss.com))
+简明git使用教程
 1.安装hugo 首先，我默认大家使用的都是Windows系统，以下内容都只针对Windows系统。
-在[Hugo Release](Releases · gohugoio/hugo (github.com))下载Windows版的hugo extended压缩包，例如hugo_extended_0.111.2_windows-amd64.zip
+在Hugo Release下载Windows版的hugo extended压缩包，例如hugo_extended_0.111.2_windows-amd64.zip
 题外话，这里出现的amd64和arm64是什么意思呢
 解答：这是CPU架构的名字，具体来讲，常见的电脑CPU（比如Intel的CORE系列）都是amd64架构，常见的手机CPU（比如高通晓龙，联发科天玑）都是arm64架构。极少数使用windows平板电脑使用arm64架构芯片
 在Git Bash中使用$uname -a$命令，如果输出中有关键词 aarch64 就是 arm64 架构，有关键词 x86_64 就是 amd64 架构
@@ -136,7 +137,8 @@ hugo new site blog 打开blog文件夹，使用Git Bash，完成git的初始化
 git init 订阅你喜欢的主题到本地，例如我使用的主题——paper
 git submodule add https://github.com/nanxiaobei/hugo-paper themes/paper Hugo 主题商店地址: Hugo 官方主题商店、Hugo 中文主题商店。
 打开D:\blog下的config.toml文件，将
-theme = &#34;&#34; 改成" />
+theme = &#34;&#34; 改成
+theme = &#34;paper&#34; paper即为你选择的主题名称" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://scncyyc.github.io/posts/how-to-build-blog/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-03-07T21:12:48+08:00" />
@@ -145,9 +147,9 @@ theme = &#34;&#34; 改成" />
   
   <meta itemprop="name" content="How to Build Blog">
 <meta itemprop="description" content="如何搭建一个基于Hugo和Github Page的博客 要求：1、在电脑上安装git。2、注册一个Github账号
-[简明git使用教程](git 使用简易指南 (bootcss.com))
+简明git使用教程
 1.安装hugo 首先，我默认大家使用的都是Windows系统，以下内容都只针对Windows系统。
-在[Hugo Release](Releases · gohugoio/hugo (github.com))下载Windows版的hugo extended压缩包，例如hugo_extended_0.111.2_windows-amd64.zip
+在Hugo Release下载Windows版的hugo extended压缩包，例如hugo_extended_0.111.2_windows-amd64.zip
 题外话，这里出现的amd64和arm64是什么意思呢
 解答：这是CPU架构的名字，具体来讲，常见的电脑CPU（比如Intel的CORE系列）都是amd64架构，常见的手机CPU（比如高通晓龙，联发科天玑）都是arm64架构。极少数使用windows平板电脑使用arm64架构芯片
 在Git Bash中使用$uname -a$命令，如果输出中有关键词 aarch64 就是 arm64 架构，有关键词 x86_64 就是 amd64 架构
@@ -160,17 +162,18 @@ hugo new site blog 打开blog文件夹，使用Git Bash，完成git的初始化
 git init 订阅你喜欢的主题到本地，例如我使用的主题——paper
 git submodule add https://github.com/nanxiaobei/hugo-paper themes/paper Hugo 主题商店地址: Hugo 官方主题商店、Hugo 中文主题商店。
 打开D:\blog下的config.toml文件，将
-theme = &#34;&#34; 改成"><meta itemprop="datePublished" content="2023-03-07T21:12:48+08:00" />
+theme = &#34;&#34; 改成
+theme = &#34;paper&#34; paper即为你选择的主题名称"><meta itemprop="datePublished" content="2023-03-07T21:12:48+08:00" />
 <meta itemprop="dateModified" content="2023-03-07T21:12:48+08:00" />
-<meta itemprop="wordCount" content="105">
+<meta itemprop="wordCount" content="100">
 <meta itemprop="keywords" content="" />
   
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="How to Build Blog"/>
 <meta name="twitter:description" content="如何搭建一个基于Hugo和Github Page的博客 要求：1、在电脑上安装git。2、注册一个Github账号
-[简明git使用教程](git 使用简易指南 (bootcss.com))
+简明git使用教程
 1.安装hugo 首先，我默认大家使用的都是Windows系统，以下内容都只针对Windows系统。
-在[Hugo Release](Releases · gohugoio/hugo (github.com))下载Windows版的hugo extended压缩包，例如hugo_extended_0.111.2_windows-amd64.zip
+在Hugo Release下载Windows版的hugo extended压缩包，例如hugo_extended_0.111.2_windows-amd64.zip
 题外话，这里出现的amd64和arm64是什么意思呢
 解答：这是CPU架构的名字，具体来讲，常见的电脑CPU（比如Intel的CORE系列）都是amd64架构，常见的手机CPU（比如高通晓龙，联发科天玑）都是arm64架构。极少数使用windows平板电脑使用arm64架构芯片
 在Git Bash中使用$uname -a$命令，如果输出中有关键词 aarch64 就是 arm64 架构，有关键词 x86_64 就是 amd64 架构
@@ -183,7 +186,8 @@ hugo new site blog 打开blog文件夹，使用Git Bash，完成git的初始化
 git init 订阅你喜欢的主题到本地，例如我使用的主题——paper
 git submodule add https://github.com/nanxiaobei/hugo-paper themes/paper Hugo 主题商店地址: Hugo 官方主题商店、Hugo 中文主题商店。
 打开D:\blog下的config.toml文件，将
-theme = &#34;&#34; 改成"/>
+theme = &#34;&#34; 改成
+theme = &#34;paper&#34; paper即为你选择的主题名称"/>
 
   
   
@@ -336,10 +340,10 @@ theme = &#34;&#34; 改成"/>
 
   <section><h3 id="如何搭建一个基于hugo和github-page的博客">如何搭建一个基于Hugo和Github Page的博客</h3>
 <p>要求：1、在电脑上安装git。2、注册一个Github账号</p>
-<p>[简明git使用教程](<a href="https://www.bootcss.com/p/git-guide/">git 使用简易指南 (bootcss.com)</a>)</p>
+<p><a href="https://www.bootcss.com/p/git-guide/">简明git使用教程</a></p>
 <h4 id="1安装hugo">1.安装hugo</h4>
 <p>首先，我默认大家使用的都是Windows系统，以下内容都只针对Windows系统。</p>
-<p>在[Hugo Release](<a href="https://github.com/gohugoio/hugo/releases">Releases · gohugoio/hugo (github.com)</a>)下载Windows版的hugo extended压缩包，例如<a href="https://github.com/gohugoio/hugo/releases/download/v0.111.2/hugo_extended_0.111.2_windows-amd64.zip">hugo_extended_0.111.2_windows-amd64.zip</a></p>
+<p>在<a href="https://github.com/gohugoio/hugo/releases">Hugo Release</a>下载Windows版的hugo extended压缩包，例如<a href="https://github.com/gohugoio/hugo/releases/download/v0.111.2/hugo_extended_0.111.2_windows-amd64.zip">hugo_extended_0.111.2_windows-amd64.zip</a></p>
 <blockquote>
 <p>题外话，这里出现的amd64和arm64是什么意思呢</p>
 <p>解答：这是CPU架构的名字，具体来讲，常见的电脑CPU（比如Intel的CORE系列）都是amd64架构，常见的手机CPU（比如高通晓龙，联发科天玑）都是arm64架构。极少数使用windows平板电脑使用arm64架构芯片</p>
