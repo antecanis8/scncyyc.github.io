@@ -2,13 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://scncyyc.github.io/posts/my-first-post/</loc>
-    <lastmod>2023-03-06T23:31:57+08:00</lastmod>
+    <loc>https://scncyyc.github.io/posts/how-to-build-blog/</loc>
+    <lastmod>2023-03-07T21:12:48+08:00</lastmod>
   </url><url>
     <loc>https://scncyyc.github.io/posts/</loc>
-    <lastmod>2023-03-06T23:31:57+08:00</lastmod>
+    <lastmod>2023-03-07T21:12:48+08:00</lastmod>
   </url><url>
     <loc>https://scncyyc.github.io/</loc>
+    <lastmod>2023-03-07T21:12:48+08:00</lastmod>
+  </url><url>
+    <loc>https://scncyyc.github.io/posts/zifuchuan-duxie/</loc>
+    <lastmod>2023-03-06T23:36:33+08:00</lastmod>
+  </url><url>
+    <loc>https://scncyyc.github.io/posts/my-first-post/</loc>
     <lastmod>2023-03-06T23:31:57+08:00</lastmod>
   </url><url>
     <loc>https://scncyyc.github.io/categories/</loc>

@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html
+  class="not-ready text-sm lg:text-base"
+  style="--bg: #faf6f1"
+  lang="zh-CN"
+>
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  
+  <title>How to Build Blog - scncyyc&#39;blog</title>
+
+  
+  <meta name="theme-color" />
+
+  
+  
+  
+  <meta name="description" content="如何搭建一个基于Hugo和Github Page的博客 要求：1、在电脑上安装git。2、注册一个Github账号
+[简明git使用教程](git 使用简易指南 (bootcss.com))
+1.安装hugo 首先，我默认大家使用的都是Windows系统，以下内容都只针对Windows系统。
+在[Hugo Release](Releases · gohugoio/hugo (github.com))下载Windows版的hugo extended压缩包，例如hugo_extended_0.111.2_windows-amd64.zip
+题外话，这里出现的amd64和arm64是什么意思呢
+解答：这是CPU架构的名字，具体来讲，常见的电脑CPU（比如Intel的CORE系列）都是amd64架构，常见的手机CPU（比如高通晓龙，联发科天玑）都是arm64架构。极少数使用windows平板电脑使用arm64架构芯片
+在Git Bash中使用$uname -a$命令，如果输出中有关键词 aarch64 就是 arm64 架构，有关键词 x86_64 就是 amd64 架构
+然后，将压缩包中的hugo.exe、LICENSE和README.md提取到一个非中文路径的文件夹中，为了方便说明，我这里假设为D:\hugo\bin。接着，将此文件夹添加到系统的环境变量中。
+右键单击「开始」按钮 单击「系统」 单击左侧的「高级系统设置」 单击底部的「环境变量…」按钮 在「系统变量」部分中找到Path 双击「Path」 单击「新建…」按钮 键入D:\hugo\bin，完成输入后按「回车」 在每个窗口中单击「确定」退出 测试是否安装成功：在Git Bash中输入如下命令
+hugo version 如果输出
+hugo v0.111.2等等 则安装成功
+2.创建博客 首先设置一个博客的根目录，我选择D:\blog，然后在D盘根目录使用Git Bash
+hugo new site blog 打开blog文件夹，使用Git Bash，完成git的初始化
+git init 订阅你喜欢的主题到本地，例如我使用的主题——paper
+git submodule add https://github.com/nanxiaobei/hugo-paper themes/paper Hugo 主题商店地址: Hugo 官方主题商店、Hugo 中文主题商店。
+打开D:\blog下的config.toml文件，将
+theme = &#34;&#34; 改成" />
+  <meta name="author" content="scncyyc&#39;blog" />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="https://scncyyc.github.io/main.min.css" />
+
+  
+  <script
+    defer
+    src="https://scncyyc.github.io/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+   
+  <link rel="preload" as="image" href="https://scncyyc.github.io/theme.png" />
+
+  
+  
+  
+  
+
+  
+  <link rel="preload" as="image" href="https://scncyyc.github.io/github.svg" />
+  
+  <link rel="preload" as="image" href="https://scncyyc.github.io/rss.svg" />
+  
+
+  
+  <link rel="icon" href="https://scncyyc.github.io/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://scncyyc.github.io/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.111.2">
+
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="How to Build Blog" />
+<meta property="og:description" content="如何搭建一个基于Hugo和Github Page的博客 要求：1、在电脑上安装git。2、注册一个Github账号
+[简明git使用教程](git 使用简易指南 (bootcss.com))
+1.安装hugo 首先，我默认大家使用的都是Windows系统，以下内容都只针对Windows系统。
+在[Hugo Release](Releases · gohugoio/hugo (github.com))下载Windows版的hugo extended压缩包，例如hugo_extended_0.111.2_windows-amd64.zip
+题外话，这里出现的amd64和arm64是什么意思呢
+解答：这是CPU架构的名字，具体来讲，常见的电脑CPU（比如Intel的CORE系列）都是amd64架构，常见的手机CPU（比如高通晓龙，联发科天玑）都是arm64架构。极少数使用windows平板电脑使用arm64架构芯片
+在Git Bash中使用$uname -a$命令，如果输出中有关键词 aarch64 就是 arm64 架构，有关键词 x86_64 就是 amd64 架构
+然后，将压缩包中的hugo.exe、LICENSE和README.md提取到一个非中文路径的文件夹中，为了方便说明，我这里假设为D:\hugo\bin。接着，将此文件夹添加到系统的环境变量中。
+右键单击「开始」按钮 单击「系统」 单击左侧的「高级系统设置」 单击底部的「环境变量…」按钮 在「系统变量」部分中找到Path 双击「Path」 单击「新建…」按钮 键入D:\hugo\bin，完成输入后按「回车」 在每个窗口中单击「确定」退出 测试是否安装成功：在Git Bash中输入如下命令
+hugo version 如果输出
+hugo v0.111.2等等 则安装成功
+2.创建博客 首先设置一个博客的根目录，我选择D:\blog，然后在D盘根目录使用Git Bash
+hugo new site blog 打开blog文件夹，使用Git Bash，完成git的初始化
+git init 订阅你喜欢的主题到本地，例如我使用的主题——paper
+git submodule add https://github.com/nanxiaobei/hugo-paper themes/paper Hugo 主题商店地址: Hugo 官方主题商店、Hugo 中文主题商店。
+打开D:\blog下的config.toml文件，将
+theme = &#34;&#34; 改成" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://scncyyc.github.io/posts/how-to-build-blog/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-03-07T21:12:48+08:00" />
+<meta property="article:modified_time" content="2023-03-07T21:12:48+08:00" />
+
+  
+  <meta itemprop="name" content="How to Build Blog">
+<meta itemprop="description" content="如何搭建一个基于Hugo和Github Page的博客 要求：1、在电脑上安装git。2、注册一个Github账号
+[简明git使用教程](git 使用简易指南 (bootcss.com))
+1.安装hugo 首先，我默认大家使用的都是Windows系统，以下内容都只针对Windows系统。
+在[Hugo Release](Releases · gohugoio/hugo (github.com))下载Windows版的hugo extended压缩包，例如hugo_extended_0.111.2_windows-amd64.zip
+题外话，这里出现的amd64和arm64是什么意思呢
+解答：这是CPU架构的名字，具体来讲，常见的电脑CPU（比如Intel的CORE系列）都是amd64架构，常见的手机CPU（比如高通晓龙，联发科天玑）都是arm64架构。极少数使用windows平板电脑使用arm64架构芯片
+在Git Bash中使用$uname -a$命令，如果输出中有关键词 aarch64 就是 arm64 架构，有关键词 x86_64 就是 amd64 架构
+然后，将压缩包中的hugo.exe、LICENSE和README.md提取到一个非中文路径的文件夹中，为了方便说明，我这里假设为D:\hugo\bin。接着，将此文件夹添加到系统的环境变量中。
+右键单击「开始」按钮 单击「系统」 单击左侧的「高级系统设置」 单击底部的「环境变量…」按钮 在「系统变量」部分中找到Path 双击「Path」 单击「新建…」按钮 键入D:\hugo\bin，完成输入后按「回车」 在每个窗口中单击「确定」退出 测试是否安装成功：在Git Bash中输入如下命令
+hugo version 如果输出
+hugo v0.111.2等等 则安装成功
+2.创建博客 首先设置一个博客的根目录，我选择D:\blog，然后在D盘根目录使用Git Bash
+hugo new site blog 打开blog文件夹，使用Git Bash，完成git的初始化
+git init 订阅你喜欢的主题到本地，例如我使用的主题——paper
+git submodule add https://github.com/nanxiaobei/hugo-paper themes/paper Hugo 主题商店地址: Hugo 官方主题商店、Hugo 中文主题商店。
+打开D:\blog下的config.toml文件，将
+theme = &#34;&#34; 改成"><meta itemprop="datePublished" content="2023-03-07T21:12:48+08:00" />
+<meta itemprop="dateModified" content="2023-03-07T21:12:48+08:00" />
+<meta itemprop="wordCount" content="105">
+<meta itemprop="keywords" content="" />
+  
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="How to Build Blog"/>
+<meta name="twitter:description" content="如何搭建一个基于Hugo和Github Page的博客 要求：1、在电脑上安装git。2、注册一个Github账号
+[简明git使用教程](git 使用简易指南 (bootcss.com))
+1.安装hugo 首先，我默认大家使用的都是Windows系统，以下内容都只针对Windows系统。
+在[Hugo Release](Releases · gohugoio/hugo (github.com))下载Windows版的hugo extended压缩包，例如hugo_extended_0.111.2_windows-amd64.zip
+题外话，这里出现的amd64和arm64是什么意思呢
+解答：这是CPU架构的名字，具体来讲，常见的电脑CPU（比如Intel的CORE系列）都是amd64架构，常见的手机CPU（比如高通晓龙，联发科天玑）都是arm64架构。极少数使用windows平板电脑使用arm64架构芯片
+在Git Bash中使用$uname -a$命令，如果输出中有关键词 aarch64 就是 arm64 架构，有关键词 x86_64 就是 amd64 架构
+然后，将压缩包中的hugo.exe、LICENSE和README.md提取到一个非中文路径的文件夹中，为了方便说明，我这里假设为D:\hugo\bin。接着，将此文件夹添加到系统的环境变量中。
+右键单击「开始」按钮 单击「系统」 单击左侧的「高级系统设置」 单击底部的「环境变量…」按钮 在「系统变量」部分中找到Path 双击「Path」 单击「新建…」按钮 键入D:\hugo\bin，完成输入后按「回车」 在每个窗口中单击「确定」退出 测试是否安装成功：在Git Bash中输入如下命令
+hugo version 如果输出
+hugo v0.111.2等等 则安装成功
+2.创建博客 首先设置一个博客的根目录，我选择D:\blog，然后在D盘根目录使用Git Bash
+hugo new site blog 打开blog文件夹，使用Git Bash，完成git的初始化
+git init 订阅你喜欢的主题到本地，例如我使用的主题——paper
+git submodule add https://github.com/nanxiaobei/hugo-paper themes/paper Hugo 主题商店地址: Hugo 官方主题商店、Hugo 中文主题商店。
+打开D:\blog下的config.toml文件，将
+theme = &#34;&#34; 改成"/>
+
+  
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header class="mx-auto flex h-[5rem] max-w-3xl px-8 lg:justify-center">
+  <div class="relative z-50 mr-auto flex items-center">
+    <a
+      class="-translate-x-[1px] -translate-y-0.5 text-3xl font-bold"
+      href="https://scncyyc.github.io/"
+      >scncyyc&#39;blog</a
+    >
+    <div
+      class="btn-dark text-[0] ml-6 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"
+      role="button"
+      aria-label="Dark"
+    ></div>
+  </div>
+
+  <div
+    class="btn-menu relative z-50 -mr-8 flex h-[5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+    role="button"
+    aria-label="Menu"
+  ></div>
+
+  
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = `"#faf6f1"`.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
+  >
+    
+    
+    <nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-6">
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/posts/"
+        >文章</a
+      >
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/categories/"
+        >分类</a
+      >
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/tags/"
+        >标签</a
+      >
+      
+    </nav>
+    
+
+    
+    <nav
+      class="mt-12 flex justify-center space-x-10 dark:invert lg:mt-0 lg:ml-12 lg:items-center lg:space-x-6"
+    >
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./github.svg)"
+        href="https://github.com/scncyyc"
+        target="_blank"
+        rel="me"
+      >
+        github
+      </a>
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./rss.svg)"
+        href="https://scncyyc.github.io/index.xml"
+        target="_blank"
+        rel="alternate"
+      >
+        rss
+      </a>
+      
+    </nav>
+    
+  </div>
+</header>
+
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-10rem)] max-w-3xl px-8 pt-16 pb-24 dark:prose-invert"
+    >
+      
+
+<article>
+  <header class="mb-20">
+    <h1 class="!my-0 pb-2.5">How to Build Blog</h1>
+
+    
+    <div class="text-sm opacity-50">
+      
+      <time>Mar 7, 2023</time>
+      
+      
+      
+      
+    </div>
+    
+  </header>
+
+  <section><h3 id="如何搭建一个基于hugo和github-page的博客">如何搭建一个基于Hugo和Github Page的博客</h3>
+<p>要求：1、在电脑上安装git。2、注册一个Github账号</p>
+<p>[简明git使用教程](<a href="https://www.bootcss.com/p/git-guide/">git 使用简易指南 (bootcss.com)</a>)</p>
+<h4 id="1安装hugo">1.安装hugo</h4>
+<p>首先，我默认大家使用的都是Windows系统，以下内容都只针对Windows系统。</p>
+<p>在[Hugo Release](<a href="https://github.com/gohugoio/hugo/releases">Releases · gohugoio/hugo (github.com)</a>)下载Windows版的hugo extended压缩包，例如<a href="https://github.com/gohugoio/hugo/releases/download/v0.111.2/hugo_extended_0.111.2_windows-amd64.zip">hugo_extended_0.111.2_windows-amd64.zip</a></p>
+<blockquote>
+<p>题外话，这里出现的amd64和arm64是什么意思呢</p>
+<p>解答：这是CPU架构的名字，具体来讲，常见的电脑CPU（比如Intel的CORE系列）都是amd64架构，常见的手机CPU（比如高通晓龙，联发科天玑）都是arm64架构。极少数使用windows平板电脑使用arm64架构芯片</p>
+<p>在Git Bash中使用$uname -a$命令，如果输出中有关键词 aarch64 就是 arm64 架构，有关键词 x86_64 就是 amd64 架构</p>
+</blockquote>
+<p>然后，将压缩包中的hugo.exe、LICENSE和README.md提取到一个非中文路径的文件夹中，为了方便说明，我这里假设为D:\hugo\bin。接着，将此文件夹添加到系统的环境变量中。</p>
+<pre tabindex="0"><code>右键单击「开始」按钮
+单击「系统」
+单击左侧的「高级系统设置」
+单击底部的「环境变量…」按钮
+在「系统变量」部分中找到Path
+双击「Path」
+单击「新建…」按钮
+键入D:\hugo\bin，完成输入后按「回车」
+在每个窗口中单击「确定」退出
+</code></pre><p>测试是否安装成功：在Git Bash中输入如下命令</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo version
+</span></span></code></pre></div><p>如果输出</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo v0.111.2等等
+</span></span></code></pre></div><p>则安装成功</p>
+<h4 id="2创建博客">2.创建博客</h4>
+<p>首先设置一个博客的根目录，我选择D:\blog，然后在D盘根目录使用Git Bash</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo new site blog
+</span></span></code></pre></div><p>打开blog文件夹，使用Git Bash，完成git的初始化</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git init
+</span></span></code></pre></div><p>订阅你喜欢的主题到本地，例如我使用的主题——paper</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git submodule add https://github.com/nanxiaobei/hugo-paper themes/paper
+</span></span></code></pre></div><blockquote>
+<p>Hugo 主题商店地址: <a href="https://themes.gohugo.io/">Hugo 官方主题商店</a>、<a href="https://www.gohugo.org/theme/">Hugo 中文主题商店</a>。</p>
+</blockquote>
+<p>打开D:\blog下的config.toml文件，将</p>
+<pre tabindex="0"><code>theme = &#34;&#34;
+</code></pre><p>改成</p>
+<pre tabindex="0"><code>theme = &#34;paper&#34;
+</code></pre><p>paper即为你选择的主题名称</p>
+<blockquote>
+<p>这个文件里还有一句 title = ''</p>
+<p>这两个单引号里面的就是你博客的标题，如果你博客的标题含有单引号，如yyc‘s blog，需要将原来的两个单引号换成英文双引号</p>
+</blockquote>
+<h4 id="3写第一篇博文">3.写第一篇博文</h4>
+<p>在D:\bolg目录下，使用Git Bash</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo new posts/my-first-post.md
+</span></span></code></pre></div><p>然后打开content\post文件夹，使用makrdown编辑器（如Typora，或者装有markdown插件的vs code）打开my-first-post.md，页面的默认格式如下，title后面的My First Post即为网页上会显示的博文标题，可以改成英文，而上面那句命令里的my-first-post是文章的链接，比如博客部署到Github Page后，这篇文章的链接就是https://xxxxx.github.io/posts/my-first-post/。draft: true表示这篇文章还在草稿阶段，当你认为可以发布的时候，需要改成draft: false</p>
+<pre tabindex="0"><code>---
+title: &#34;My First Post&#34;
+date: 2023-03-06T23:31:57+08:00
+draft: true
+---
+</code></pre></section>
+
+  
+  
+
+  
+  
+  
+  <nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
+    
+    
+    <a
+      class="ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="https://scncyyc.github.io/posts/zifuchuan-duxie/"
+      ><span>字符串的读写</span><span class="ml-1.5">→</span></a
+    >
+    
+  </nav>
+  
+
+  
+  
+
+  
+  
+</article>
+
+
+    </main>
+
+    <footer
+  class="opaco mx-auto flex h-[5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-50"
+>
+  <div class="mr-auto">
+    &copy; 2023
+    <a class="link" href="https://scncyyc.github.io/">scncyyc&#39;blog</a>
+  </div>
+  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
+    >Powered by Hugo️️</a
+  >️
+  <a
+    class="link"
+    href="https://github.com/nanxiaobei/hugo-paper"
+    rel="noopener"
+    target="_blank"
+    >Theme Paper</a
+  >
+</footer>
+
+  </body>
+</html>

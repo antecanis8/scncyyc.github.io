@@ -6,7 +6,42 @@
     <description>Recent content on scncyyc&#39;blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 06 Mar 2023 23:31:57 +0800</lastBuildDate><atom:link href="https://scncyyc.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 07 Mar 2023 21:12:48 +0800</lastBuildDate><atom:link href="https://scncyyc.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Build Blog</title>
+      <link>https://scncyyc.github.io/posts/how-to-build-blog/</link>
+      <pubDate>Tue, 07 Mar 2023 21:12:48 +0800</pubDate>
+      
+      <guid>https://scncyyc.github.io/posts/how-to-build-blog/</guid>
+      <description>如何搭建一个基于Hugo和Github Page的博客 要求：1、在电脑上安装git。2、注册一个Github账号
+[简明git使用教程](git 使用简易指南 (bootcss.com))
+1.安装hugo 首先，我默认大家使用的都是Windows系统，以下内容都只针对Windows系统。
+在[Hugo Release](Releases · gohugoio/hugo (github.com))下载Windows版的hugo extended压缩包，例如hugo_extended_0.111.2_windows-amd64.zip
+题外话，这里出现的amd64和arm64是什么意思呢
+解答：这是CPU架构的名字，具体来讲，常见的电脑CPU（比如Intel的CORE系列）都是amd64架构，常见的手机CPU（比如高通晓龙，联发科天玑）都是arm64架构。极少数使用windows平板电脑使用arm64架构芯片
+在Git Bash中使用$uname -a$命令，如果输出中有关键词 aarch64 就是 arm64 架构，有关键词 x86_64 就是 amd64 架构
+然后，将压缩包中的hugo.exe、LICENSE和README.md提取到一个非中文路径的文件夹中，为了方便说明，我这里假设为D:\hugo\bin。接着，将此文件夹添加到系统的环境变量中。
+右键单击「开始」按钮 单击「系统」 单击左侧的「高级系统设置」 单击底部的「环境变量…」按钮 在「系统变量」部分中找到Path 双击「Path」 单击「新建…」按钮 键入D:\hugo\bin，完成输入后按「回车」 在每个窗口中单击「确定」退出 测试是否安装成功：在Git Bash中输入如下命令
+hugo version 如果输出
+hugo v0.111.2等等 则安装成功
+2.创建博客 首先设置一个博客的根目录，我选择D:\blog，然后在D盘根目录使用Git Bash
+hugo new site blog 打开blog文件夹，使用Git Bash，完成git的初始化
+git init 订阅你喜欢的主题到本地，例如我使用的主题——paper
+git submodule add https://github.com/nanxiaobei/hugo-paper themes/paper Hugo 主题商店地址: Hugo 官方主题商店、Hugo 中文主题商店。
+打开D:\blog下的config.toml文件，将
+theme = &amp;#34;&amp;#34; 改成</description>
+    </item>
+    
+    <item>
+      <title>字符串的读写</title>
+      <link>https://scncyyc.github.io/posts/zifuchuan-duxie/</link>
+      <pubDate>Mon, 06 Mar 2023 23:36:33 +0800</pubDate>
+      
+      <guid>https://scncyyc.github.io/posts/zifuchuan-duxie/</guid>
+      <description>c++字符串笔记 c风格字符串 字符串以空字符结尾，写作&amp;rsquo;\0&amp;rsquo;，ASCLL码为0
+char yess[5]={&amp;#39;y&amp;#39;,&amp;#39;e&amp;#39;,&amp;#39;s&amp;#39;,&amp;#39;s&amp;#39;,&amp;#39;\0&amp;#39;}; char notes[5]={&amp;#39;n&amp;#39;,&amp;#39;o&amp;#39;,&amp;#39;t&amp;#39;,&amp;#39;e&amp;#39;,&amp;#39;s&amp;#39;}; 上面定义的两个char字符组中，只有第一个是字符串。在很多对字符串进行处理的函数中，例如使用cout输出字符串，判断字符串结尾的标志都是&amp;rsquo;\0&amp;rsquo;，如果用cout输出noteg数组，则不会在输出&amp;rsquo;noteg&amp;rsquo;后停止，而是会一直输出内存中notes之后的内容，直到遇见&amp;rsquo;\0&amp;rsquo;。</description>
+    </item>
+    
     <item>
       <title>My First Post</title>
       <link>https://scncyyc.github.io/posts/my-first-post/</link>
