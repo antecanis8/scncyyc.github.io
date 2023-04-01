@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on scncyyc&#39;blog</title>
+    <title>Posts on scncyyc&#39;s blog</title>
     <link>https://scncyyc.github.io/posts/</link>
-    <description>Recent content in Posts on scncyyc&#39;blog</description>
+    <description>Recent content in Posts on scncyyc&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 07 Mar 2023 21:12:48 +0800</lastBuildDate><atom:link href="https://scncyyc.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 01 Apr 2023 19:53:01 +0800</lastBuildDate><atom:link href="https://scncyyc.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Typedef_struct</title>
+      <link>https://scncyyc.github.io/posts/typedef_struct/</link>
+      <pubDate>Sat, 01 Apr 2023 19:53:01 +0800</pubDate>
+      
+      <guid>https://scncyyc.github.io/posts/typedef_struct/</guid>
+      <description>typedef struct 我们都知道，typedef可以为现有的类型创建别名，定义易于记忆的类型名，例如
+typedef long byte_4 但是，typedef在和struct一起使用的时候，具体的过程是怎么样的呢
+typedef struct tagMyStruct{ int a,b; }mystruct,*link; 这里实际上完成了两个操作，首先定义了一个结构体
+struct tagMyStruct{ int a,b; }; 分析：tagMyStruct称为“tag”，即“标签”，实际上是一个临时名字，struct和tagMyStruct一起，构成了这个结构类型，不论是否有typedef，这个结构都存在。 我们可以用struct tagMyStruct varName来定义变量，但要注意，使用tagMyStruct varName来定义变量是不对的，因为struct 和tagMyStruct合在一起才能表示一个结构类型。
+然后，typedef为这个新的结构起了一个名字，叫MyStruct
+typedef struct tagMyStruct MyStruct 分析：MyStruct实际上相当于struct tagMyStruct，我们可以使用MyStruct varName来定义变量。
+完整的例子
+typedef struct tagMyStruct{ int a,b; }mystruct,*link; int main() { struct tagMyStruct x; x.a=1; x.b=2; mystruct y; y.a=3; y.b=4; link z=&amp;amp;y;//这个link在上面定义的时候是指针类型，所以这里直接定义一个指针z z-&amp;gt;a=5; z-&amp;gt;b=6; printf(&amp;#34;%d %d\n&amp;#34;,z-&amp;gt;a,z-&amp;gt;b); link *p=&amp;amp;z;//这里是定义一个指针指针,p的值为指针z的地址，所以*p==z成立，(*(*p))==y成立 // (*p)-&amp;gt;a=7; (*p)-&amp;gt;b=8; (*(*p)).a=7; (*(*p)).a=8;//这两句话等价 printf(&amp;#34;%d %d\n&amp;#34;,(*p)-&amp;gt;a,(*p)-&amp;gt;b); return 0; } </description>
+    </item>
+    
     <item>
       <title>How to Build Blog</title>
       <link>https://scncyyc.github.io/posts/how-to-build-blog/</link>
