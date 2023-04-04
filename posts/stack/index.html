@@ -43,7 +43,7 @@
   />
 
   
-  <title>Posts - scncyyc&#39;s blog</title>
+  <title>Stack - scncyyc&#39;s blog</title>
 
   
   <meta name="theme-color" />
@@ -51,11 +51,7 @@
   
   
   
-  
-  <meta
-    name="description"
-    content="A personal blog"
-  />
+  <meta name="description" content="构造函数 stack&lt;int&gt; s; stack&lt;string&gt; s; 容量操作 函数名称 功能说明 void push (const value_type&amp; val); 将val入栈 void pop(); 移除栈顶元素 value_type&amp; top();const value_type&amp; top() const; 取得栈顶元素 bool empty() const; 检测栈内是否为空，空为真 size_type size() const; 返回栈内元素的个数 void swap (stack&amp; x); 交换两个栈的元素 遍历方法 栈只能对栈顶元素进行操作，如果想要进行遍历，只能将栈中元素一个个取出来存在数组中" />
   <meta name="author" content="scncyyc&#39;s blog" />
   
 
@@ -67,6 +63,12 @@
   
   <link rel="preload stylesheet" as="style" href="https://scncyyc.github.io/main.min.css" />
 
+  
+  <script
+    defer
+    src="https://scncyyc.github.io/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
   
 
   
@@ -93,13 +95,6 @@
 
   
   
-  <link
-    rel="alternate"
-    type="application/rss&#43;xml"
-    href="https://scncyyc.github.io/posts/index.xml"
-    title="scncyyc&#39;s blog"
-  />
-  
 
   
   
@@ -108,18 +103,23 @@
   
   
   
-  <meta property="og:title" content="Posts" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://scncyyc.github.io/posts/" />
+  <meta property="og:title" content="Stack" />
+<meta property="og:description" content="构造函数 stack&lt;int&gt; s; stack&lt;string&gt; s; 容量操作 函数名称 功能说明 void push (const value_type&amp; val); 将val入栈 void pop(); 移除栈顶元素 value_type&amp; top();const value_type&amp; top() const; 取得栈顶元素 bool empty() const; 检测栈内是否为空，空为真 size_type size() const; 返回栈内元素的个数 void swap (stack&amp; x); 交换两个栈的元素 遍历方法 栈只能对栈顶元素进行操作，如果想要进行遍历，只能将栈中元素一个个取出来存在数组中" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://scncyyc.github.io/posts/stack/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-04-04T23:35:25+08:00" />
+<meta property="article:modified_time" content="2023-04-04T23:35:25+08:00" />
 
   
-  <meta itemprop="name" content="Posts">
-<meta itemprop="description" content="">
+  <meta itemprop="name" content="Stack">
+<meta itemprop="description" content="构造函数 stack&lt;int&gt; s; stack&lt;string&gt; s; 容量操作 函数名称 功能说明 void push (const value_type&amp; val); 将val入栈 void pop(); 移除栈顶元素 value_type&amp; top();const value_type&amp; top() const; 取得栈顶元素 bool empty() const; 检测栈内是否为空，空为真 size_type size() const; 返回栈内元素的个数 void swap (stack&amp; x); 交换两个栈的元素 遍历方法 栈只能对栈顶元素进行操作，如果想要进行遍历，只能将栈中元素一个个取出来存在数组中"><meta itemprop="datePublished" content="2023-04-04T23:35:25+08:00" />
+<meta itemprop="dateModified" content="2023-04-04T23:35:25+08:00" />
+<meta itemprop="wordCount" content="38">
+<meta itemprop="keywords" content="" />
   
   <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Posts"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="Stack"/>
+<meta name="twitter:description" content="构造函数 stack&lt;int&gt; s; stack&lt;string&gt; s; 容量操作 函数名称 功能说明 void push (const value_type&amp; val); 将val入栈 void pop(); 移除栈顶元素 value_type&amp; top();const value_type&amp; top() const; 取得栈顶元素 bool empty() const; 检测栈内是否为空，空为真 size_type size() const; 返回栈内元素的个数 void swap (stack&amp; x); 交换两个栈的元素 遍历方法 栈只能对栈顶元素进行操作，如果想要进行遍历，只能将栈中元素一个个取出来存在数组中"/>
 
   
   
@@ -254,114 +254,94 @@
     >
       
 
+<article>
+  <header class="mb-20">
+    <h1 class="!my-0 pb-2.5">Stack</h1>
 
+    
+    <div class="text-sm opacity-50">
+      
+      <time>Apr 4, 2023</time>
+      
+      
+      
+      
+    </div>
+    
+  </header>
 
-
-
-
-
-
-
- 
-
-
-
-
-<section class="relative my-10 first-of-type:mt-0 last-of-type:mb-0">
-  <h2 class="!my-0 pb-1 !leading-none">String</h2>
-  <time class="text-sm opacity-50"
-    >Apr 4, 2023</time
-  >
-  <a class="absolute inset-0 text-[0]" href="https://scncyyc.github.io/posts/string/">String</a>
+  <section><h2 id="构造函数">构造函数</h2>
+<pre tabindex="0"><code class="language-c++cpp" data-lang="c++cpp">stack&lt;int&gt; s;
+stack&lt;string&gt; s;
+</code></pre><h2 id="容量操作">容量操作</h2>
+<table>
+<thead>
+<tr>
+<th>函数名称</th>
+<th>功能说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>void push (const value_type&amp; val);</td>
+<td>将val入栈</td>
+</tr>
+<tr>
+<td>void pop();</td>
+<td>移除栈顶元素</td>
+</tr>
+<tr>
+<td>value_type&amp; top();<!-- raw HTML omitted -->const value_type&amp; top() const;</td>
+<td>取得栈顶元素</td>
+</tr>
+<tr>
+<td>bool empty() const;</td>
+<td>检测栈内是否为空，空为真</td>
+</tr>
+<tr>
+<td>size_type size() const;</td>
+<td>返回栈内元素的个数</td>
+</tr>
+<tr>
+<td>void swap (stack&amp; x);</td>
+<td>交换两个栈的元素</td>
+</tr>
+</tbody>
+</table>
+<h2 id="遍历方法">遍历方法</h2>
+<p>栈只能对栈顶元素进行操作，如果想要进行遍历，只能将栈中元素一个个取出来存在数组中</p>
 </section>
 
+  
+  
 
+  
+  
+  
+  <nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
+    
+    <a
+      class="flex w-1/2 items-center rounded-l-md p-6 pr-3 no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="https://scncyyc.github.io/posts/string/"
+      ><span class="mr-1.5">←</span><span>String</span></a
+    >
+    
+    
+    <a
+      class="ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="https://scncyyc.github.io/posts/vector/"
+      ><span>Vector</span><span class="ml-1.5">→</span></a
+    >
+    
+  </nav>
+  
 
+  
+  
 
-
-<section class="relative my-10 first-of-type:mt-0 last-of-type:mb-0">
-  <h2 class="!my-0 pb-1 !leading-none">Stack</h2>
-  <time class="text-sm opacity-50"
-    >Apr 4, 2023</time
-  >
-  <a class="absolute inset-0 text-[0]" href="https://scncyyc.github.io/posts/stack/">Stack</a>
-</section>
-
-
-
-
-
-<section class="relative my-10 first-of-type:mt-0 last-of-type:mb-0">
-  <h2 class="!my-0 pb-1 !leading-none">Vector</h2>
-  <time class="text-sm opacity-50"
-    >Apr 4, 2023</time
-  >
-  <a class="absolute inset-0 text-[0]" href="https://scncyyc.github.io/posts/vector/">Vector</a>
-</section>
-
-
-
-
-
-<section class="relative my-10 first-of-type:mt-0 last-of-type:mb-0">
-  <h2 class="!my-0 pb-1 !leading-none">工作周报1</h2>
-  <time class="text-sm opacity-50"
-    >Apr 4, 2023</time
-  >
-  <a class="absolute inset-0 text-[0]" href="https://scncyyc.github.io/posts/week1/">工作周报1</a>
-</section>
-
-
-
-
-
-<section class="relative my-10 first-of-type:mt-0 last-of-type:mb-0">
-  <h2 class="!my-0 pb-1 !leading-none">Typedef_struct</h2>
-  <time class="text-sm opacity-50"
-    >Apr 1, 2023</time
-  >
-  <a class="absolute inset-0 text-[0]" href="https://scncyyc.github.io/posts/typedef_struct/">Typedef_struct</a>
-</section>
-
-
-
-
-
-<section class="relative my-10 first-of-type:mt-0 last-of-type:mb-0">
-  <h2 class="!my-0 pb-1 !leading-none">How to Build Blog</h2>
-  <time class="text-sm opacity-50"
-    >Mar 7, 2023</time
-  >
-  <a class="absolute inset-0 text-[0]" href="https://scncyyc.github.io/posts/how-to-build-blog/">How to Build Blog</a>
-</section>
-
-
-
-
-
-<section class="relative my-10 first-of-type:mt-0 last-of-type:mb-0">
-  <h2 class="!my-0 pb-1 !leading-none">字符串的读写</h2>
-  <time class="text-sm opacity-50"
-    >Mar 6, 2023</time
-  >
-  <a class="absolute inset-0 text-[0]" href="https://scncyyc.github.io/posts/zifuchuan-duxie/">字符串的读写</a>
-</section>
-
-
-
-
-
-<section class="relative my-10 first-of-type:mt-0 last-of-type:mb-0">
-  <h2 class="!my-0 pb-1 !leading-none">My First Post</h2>
-  <time class="text-sm opacity-50"
-    >Mar 6, 2023</time
-  >
-  <a class="absolute inset-0 text-[0]" href="https://scncyyc.github.io/posts/my-first-post/">My First Post</a>
-</section>
-
-
-
-
+  
+  
+</article>
 
 
     </main>

@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html
+  class="not-ready text-sm lg:text-base"
+  style="--bg: #faf6f1"
+  lang="zh-CN"
+>
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  
+  <title>String - scncyyc&#39;s blog</title>
+
+  
+  <meta name="theme-color" />
+
+  
+  
+  
+  <meta name="description" content="构造函数 构造函数 描述 string g1(&ldquo;abd sdgg&rdquo;) 双引号内是C风格字符串 string g2(&lsquo;h&rsquo;,20) 将20个h组成的字符串赋给g2 string g3(g2) 将g2复制给g3 string g4(g2,10) 将g2的前10个字符赋给g4 char r[10]=&ldquo;abcdefg&rdquo;string g5(r&#43;2,r&#43;5) g5内为&quot;cde&quot;，r&#43;2类似指针，表示从r[2]开始，不包括r[5]， 输入 string g; cin&gt;&gt;g;//不能读取空格 getline(cin,g);//可以读取空格 输出 string g(&#34;abc defg&#34;); cout&lt;&lt;g; printf(&#34;%s&#34;,&amp;g[0]); printf(&#34;%s&#34;,g.c_str()); 为什么%s不能直接输出string，因为printf输出字符串是针对char *的，换言之，printf只能输出C语言中的内置数据，string不是c语言内置数据。
+更深入的来说：s这个string类型的对象并非单单只有字符串，其内还有许多用于操作的函数，于是&amp;s并非字符串“中国”的首地址，而是s这个对象的首地址。
+所以，用%s输出string时，要取g[0]的地址，或者用c_str()函数，把string转换成C类型字符串（后面有讲）。
+容量操作 函数名称 功能说明 size_t size() const 返回字符串有效字符长度 size_t length() const 返回字符串有效字符长度 size_t capacity() const 返回为string分配的空间总大小 bool empty() const 检测字符串是否为空串，是返回true，否则返回false void clear() 清空有效字符 void resize( size_t n, char c ) 将有效字符的个数该成n个，多出的空间用字符c填充 void resize ( size_t n ) 将有效字符的个数改成n个，多出的空间用0填充 void reserve ( size_t res_arg=0 ) 为字符串预留空间 size_t类型表示C中任何对象所能达到的最大长度，它是无符号整数。" />
+  <meta name="author" content="scncyyc&#39;s blog" />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="https://scncyyc.github.io/main.min.css" />
+
+  
+  <script
+    defer
+    src="https://scncyyc.github.io/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+   
+  <link rel="preload" as="image" href="https://scncyyc.github.io/theme.png" />
+
+  
+  
+  
+  
+
+  
+  <link rel="preload" as="image" href="https://scncyyc.github.io/github.svg" />
+  
+  <link rel="preload" as="image" href="https://scncyyc.github.io/rss.svg" />
+  
+
+  
+  <link rel="icon" href="https://scncyyc.github.io/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://scncyyc.github.io/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.111.2">
+
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="String" />
+<meta property="og:description" content="构造函数 构造函数 描述 string g1(&ldquo;abd sdgg&rdquo;) 双引号内是C风格字符串 string g2(&lsquo;h&rsquo;,20) 将20个h组成的字符串赋给g2 string g3(g2) 将g2复制给g3 string g4(g2,10) 将g2的前10个字符赋给g4 char r[10]=&ldquo;abcdefg&rdquo;string g5(r&#43;2,r&#43;5) g5内为&quot;cde&quot;，r&#43;2类似指针，表示从r[2]开始，不包括r[5]， 输入 string g; cin&gt;&gt;g;//不能读取空格 getline(cin,g);//可以读取空格 输出 string g(&#34;abc defg&#34;); cout&lt;&lt;g; printf(&#34;%s&#34;,&amp;g[0]); printf(&#34;%s&#34;,g.c_str()); 为什么%s不能直接输出string，因为printf输出字符串是针对char *的，换言之，printf只能输出C语言中的内置数据，string不是c语言内置数据。
+更深入的来说：s这个string类型的对象并非单单只有字符串，其内还有许多用于操作的函数，于是&amp;s并非字符串“中国”的首地址，而是s这个对象的首地址。
+所以，用%s输出string时，要取g[0]的地址，或者用c_str()函数，把string转换成C类型字符串（后面有讲）。
+容量操作 函数名称 功能说明 size_t size() const 返回字符串有效字符长度 size_t length() const 返回字符串有效字符长度 size_t capacity() const 返回为string分配的空间总大小 bool empty() const 检测字符串是否为空串，是返回true，否则返回false void clear() 清空有效字符 void resize( size_t n, char c ) 将有效字符的个数该成n个，多出的空间用字符c填充 void resize ( size_t n ) 将有效字符的个数改成n个，多出的空间用0填充 void reserve ( size_t res_arg=0 ) 为字符串预留空间 size_t类型表示C中任何对象所能达到的最大长度，它是无符号整数。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://scncyyc.github.io/posts/string/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-04-04T23:36:31+08:00" />
+<meta property="article:modified_time" content="2023-04-04T23:36:31+08:00" />
+
+  
+  <meta itemprop="name" content="String">
+<meta itemprop="description" content="构造函数 构造函数 描述 string g1(&ldquo;abd sdgg&rdquo;) 双引号内是C风格字符串 string g2(&lsquo;h&rsquo;,20) 将20个h组成的字符串赋给g2 string g3(g2) 将g2复制给g3 string g4(g2,10) 将g2的前10个字符赋给g4 char r[10]=&ldquo;abcdefg&rdquo;string g5(r&#43;2,r&#43;5) g5内为&quot;cde&quot;，r&#43;2类似指针，表示从r[2]开始，不包括r[5]， 输入 string g; cin&gt;&gt;g;//不能读取空格 getline(cin,g);//可以读取空格 输出 string g(&#34;abc defg&#34;); cout&lt;&lt;g; printf(&#34;%s&#34;,&amp;g[0]); printf(&#34;%s&#34;,g.c_str()); 为什么%s不能直接输出string，因为printf输出字符串是针对char *的，换言之，printf只能输出C语言中的内置数据，string不是c语言内置数据。
+更深入的来说：s这个string类型的对象并非单单只有字符串，其内还有许多用于操作的函数，于是&amp;s并非字符串“中国”的首地址，而是s这个对象的首地址。
+所以，用%s输出string时，要取g[0]的地址，或者用c_str()函数，把string转换成C类型字符串（后面有讲）。
+容量操作 函数名称 功能说明 size_t size() const 返回字符串有效字符长度 size_t length() const 返回字符串有效字符长度 size_t capacity() const 返回为string分配的空间总大小 bool empty() const 检测字符串是否为空串，是返回true，否则返回false void clear() 清空有效字符 void resize( size_t n, char c ) 将有效字符的个数该成n个，多出的空间用字符c填充 void resize ( size_t n ) 将有效字符的个数改成n个，多出的空间用0填充 void reserve ( size_t res_arg=0 ) 为字符串预留空间 size_t类型表示C中任何对象所能达到的最大长度，它是无符号整数。"><meta itemprop="datePublished" content="2023-04-04T23:36:31+08:00" />
+<meta itemprop="dateModified" content="2023-04-04T23:36:31+08:00" />
+<meta itemprop="wordCount" content="325">
+<meta itemprop="keywords" content="" />
+  
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="String"/>
+<meta name="twitter:description" content="构造函数 构造函数 描述 string g1(&ldquo;abd sdgg&rdquo;) 双引号内是C风格字符串 string g2(&lsquo;h&rsquo;,20) 将20个h组成的字符串赋给g2 string g3(g2) 将g2复制给g3 string g4(g2,10) 将g2的前10个字符赋给g4 char r[10]=&ldquo;abcdefg&rdquo;string g5(r&#43;2,r&#43;5) g5内为&quot;cde&quot;，r&#43;2类似指针，表示从r[2]开始，不包括r[5]， 输入 string g; cin&gt;&gt;g;//不能读取空格 getline(cin,g);//可以读取空格 输出 string g(&#34;abc defg&#34;); cout&lt;&lt;g; printf(&#34;%s&#34;,&amp;g[0]); printf(&#34;%s&#34;,g.c_str()); 为什么%s不能直接输出string，因为printf输出字符串是针对char *的，换言之，printf只能输出C语言中的内置数据，string不是c语言内置数据。
+更深入的来说：s这个string类型的对象并非单单只有字符串，其内还有许多用于操作的函数，于是&amp;s并非字符串“中国”的首地址，而是s这个对象的首地址。
+所以，用%s输出string时，要取g[0]的地址，或者用c_str()函数，把string转换成C类型字符串（后面有讲）。
+容量操作 函数名称 功能说明 size_t size() const 返回字符串有效字符长度 size_t length() const 返回字符串有效字符长度 size_t capacity() const 返回为string分配的空间总大小 bool empty() const 检测字符串是否为空串，是返回true，否则返回false void clear() 清空有效字符 void resize( size_t n, char c ) 将有效字符的个数该成n个，多出的空间用字符c填充 void resize ( size_t n ) 将有效字符的个数改成n个，多出的空间用0填充 void reserve ( size_t res_arg=0 ) 为字符串预留空间 size_t类型表示C中任何对象所能达到的最大长度，它是无符号整数。"/>
+
+  
+  
+</head>
+
+  <body class="text-black duration-200 ease-out dark:text-white">
+    <header class="mx-auto flex h-[5rem] max-w-3xl px-8 lg:justify-center">
+  <div class="relative z-50 mr-auto flex items-center">
+    <a
+      class="-translate-x-[1px] -translate-y-0.5 text-3xl font-bold"
+      href="https://scncyyc.github.io/"
+      >scncyyc&#39;s blog</a
+    >
+    <div
+      class="btn-dark text-[0] ml-6 h-6 w-6 shrink-0 cursor-pointer [background:url(./theme.png)_left_center/_auto_theme('spacing.6')_no-repeat] [transition:_background-position_0.4s_steps(5)] dark:[background-position:right]"
+      role="button"
+      aria-label="Dark"
+    ></div>
+  </div>
+
+  <div
+    class="btn-menu relative z-50 -mr-8 flex h-[5rem] w-[5rem] shrink-0 cursor-pointer flex-col items-center justify-center gap-2.5 lg:hidden"
+    role="button"
+    aria-label="Menu"
+  ></div>
+
+  
+  <script>
+    
+    const htmlClass = document.documentElement.classList;
+    setTimeout(() => {
+      htmlClass.remove('not-ready');
+    }, 10);
+
+    
+    const btnMenu = document.querySelector('.btn-menu');
+    btnMenu.addEventListener('click', () => {
+      htmlClass.toggle('open');
+    });
+
+    
+    const metaTheme = document.querySelector('meta[name="theme-color"]');
+    const lightBg = `"#faf6f1"`.replace(/"/g, '');
+    const setDark = (isDark) => {
+      metaTheme.setAttribute('content', isDark ? '#000' : lightBg);
+      htmlClass[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark);
+    };
+
+    
+    const darkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    if (htmlClass.contains('dark')) {
+      setDark(true);
+    } else {
+      const darkVal = localStorage.getItem('dark');
+      setDark(darkVal ? darkVal === 'true' : darkScheme.matches);
+    }
+
+    
+    darkScheme.addEventListener('change', (event) => {
+      setDark(event.matches);
+    });
+
+    
+    const btnDark = document.querySelector('.btn-dark');
+    btnDark.addEventListener('click', () => {
+      setDark(localStorage.getItem('dark') !== 'true');
+    });
+  </script>
+
+  <div
+    class="nav-wrapper fixed inset-x-0 top-full z-40 flex h-full select-none flex-col justify-center pb-16 duration-200 dark:bg-black lg:static lg:h-auto lg:flex-row lg:!bg-transparent lg:pb-0 lg:transition-none"
+  >
+    
+    
+    <nav class="lg:ml-12 lg:flex lg:flex-row lg:items-center lg:space-x-6">
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/posts/"
+        >文章</a
+      >
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/categories/"
+        >分类</a
+      >
+      
+      <a
+        class="block text-center text-2xl leading-[5rem] lg:text-base lg:font-normal"
+        href="/tags/"
+        >标签</a
+      >
+      
+    </nav>
+    
+
+    
+    <nav
+      class="mt-12 flex justify-center space-x-10 dark:invert lg:mt-0 lg:ml-12 lg:items-center lg:space-x-6"
+    >
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./github.svg)"
+        href="https://github.com/scncyyc"
+        target="_blank"
+        rel="me"
+      >
+        github
+      </a>
+      
+      <a
+        class="h-8 w-8 text-[0] [background:var(--url)_center_center/cover_no-repeat] lg:h-6 lg:w-6"
+        style="--url: url(./rss.svg)"
+        href="https://scncyyc.github.io/index.xml"
+        target="_blank"
+        rel="alternate"
+      >
+        rss
+      </a>
+      
+    </nav>
+    
+  </div>
+</header>
+
+
+    <main
+      class="prose prose-neutral relative mx-auto min-h-[calc(100%-10rem)] max-w-3xl px-8 pt-16 pb-24 dark:prose-invert"
+    >
+      
+
+<article>
+  <header class="mb-20">
+    <h1 class="!my-0 pb-2.5">String</h1>
+
+    
+    <div class="text-sm opacity-50">
+      
+      <time>Apr 4, 2023</time>
+      
+      
+      
+      
+    </div>
+    
+  </header>
+
+  <section><h2 id="构造函数">构造函数</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">构造函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">string g1(&ldquo;abd sdgg&rdquo;)</td>
+<td>双引号内是C风格字符串</td>
+</tr>
+<tr>
+<td style="text-align:left">string g2(&lsquo;h&rsquo;,20)</td>
+<td>将20个h组成的字符串赋给g2</td>
+</tr>
+<tr>
+<td style="text-align:left">string g3(g2)</td>
+<td>将g2复制给g3</td>
+</tr>
+<tr>
+<td style="text-align:left">string g4(g2,10)</td>
+<td>将g2的前10个字符赋给g4</td>
+</tr>
+<tr>
+<td style="text-align:left">char r[10]=&ldquo;abcdefg&rdquo;<!-- raw HTML omitted -->string g5(r+2,r+5)</td>
+<td>g5内为&quot;cde&quot;，r+2类似指针，表示从r[2]开始，不包括r[5]，</td>
+</tr>
+</tbody>
+</table>
+<h3 id="输入">输入</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span>	string g;
+</span></span><span style="display:flex;"><span>	cin<span style="color:#f92672">&gt;&gt;</span>g;<span style="color:#75715e">//不能读取空格
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	getline(cin,g);<span style="color:#75715e">//可以读取空格
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	
+</span></span></code></pre></div><h3 id="输出">输出</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span>	string <span style="color:#a6e22e">g</span>(<span style="color:#e6db74">&#34;abc defg&#34;</span>);
+</span></span><span style="display:flex;"><span>	cout<span style="color:#f92672">&lt;&lt;</span>g;
+</span></span><span style="display:flex;"><span>	printf(<span style="color:#e6db74">&#34;%s&#34;</span>,<span style="color:#f92672">&amp;</span>g[<span style="color:#ae81ff">0</span>]);
+</span></span><span style="display:flex;"><span>	printf(<span style="color:#e6db74">&#34;%s&#34;</span>,g.c_str());
+</span></span></code></pre></div><p>为什么%s不能直接输出string，因为printf输出字符串是针对char *的，换言之，printf只能输出C语言中的内置数据，string不是c语言内置数据。</p>
+<p>更深入的来说：s这个string类型的对象并非单单只有字符串，其内还有许多用于操作的函数，于是&amp;s并非字符串“中国”的首地址，而是s这个对象的首地址。</p>
+<p>所以，用%s输出string时，要取g[0]的地址，或者用c_str()函数，把string转换成C类型字符串（后面有讲）。</p>
+<h2 id="容量操作">容量操作</h2>
+<table>
+<thead>
+<tr>
+<th>函数名称</th>
+<th>功能说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>size_t size() const</td>
+<td>返回字符串有效字符长度</td>
+</tr>
+<tr>
+<td>size_t length() const</td>
+<td>返回字符串有效字符长度</td>
+</tr>
+<tr>
+<td>size_t capacity() const</td>
+<td>返回为string分配的空间总大小</td>
+</tr>
+<tr>
+<td>bool empty() const</td>
+<td>检测字符串是否为空串，是返回true，否则返回false</td>
+</tr>
+<tr>
+<td>void clear()</td>
+<td>清空有效字符</td>
+</tr>
+<tr>
+<td>void resize( size_t n, char c )</td>
+<td>将有效字符的个数该成n个，多出的空间用字符c填充</td>
+</tr>
+<tr>
+<td>void resize ( size_t n )</td>
+<td>将有效字符的个数改成n个，多出的空间用0填充</td>
+</tr>
+<tr>
+<td>void reserve ( size_t res_arg=0 )</td>
+<td>为字符串预留空间</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>
+<p><code>size_t</code>类型表示C中任何对象所能达到的最大长度，它是无符号整数。</p>
+</li>
+<li>
+<p><code>size()</code>与<code>length()</code>方法底层实现原理完全相同，引入size()的原因是为了与其他容器的接口保持一致，一般情况下基本都是用<code>size()</code>。</p>
+</li>
+<li>
+<p><code>reserve()</code>一般和插入、<code>operator+=</code>配合，它只是扩充容量，<code>size</code>仍为原大小。当<code>reserve</code>的参数小于string的底层空间总大小（<code>capacity()</code>）时，<code>reserver</code>不会改变容量大小。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span>	string g1,g2;
+</span></span><span style="display:flex;"><span>	g2.reserve(<span style="color:#ae81ff">30</span>);
+</span></span><span style="display:flex;"><span>	printf(<span style="color:#e6db74">&#34;%d &#34;</span>,g1.capacity());
+</span></span><span style="display:flex;"><span>	printf(<span style="color:#e6db74">&#34;%d&#34;</span>,g2.capacity());
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//输出为15 30，可知string在定义之初，可以储存15个字符，使用reserve(t)将string扩充到t个字符
+</span></span></span></code></pre></div></li>
+<li>
+<p><code>resize(size_t n, char c)</code>一般<code>operator[]</code>配合，它既扩容，又改变了<code>size</code>值，这样就可以通过<code>[]</code>访问。<code>resize</code>在改变元素个数时，当<code>resize</code>的参数大于<code>string</code>的底层空间总大小时，可能会改变底层容量的大小，当<code>resize</code>的参数小于<code>string</code>的底层空间总大小时，<code>resize</code>不会改变容量大小，只会改变有效长度。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span>	string g;
+</span></span><span style="display:flex;"><span>	printf(<span style="color:#e6db74">&#34;%d &#34;</span>,g.capacity());
+</span></span><span style="display:flex;"><span>	g.resize(<span style="color:#ae81ff">40</span> ,<span style="color:#e6db74">&#39;h&#39;</span>);
+</span></span><span style="display:flex;"><span>	printf(<span style="color:#e6db74">&#34;%d &#34;</span>,g.capacity());
+</span></span><span style="display:flex;"><span>	printf(<span style="color:#e6db74">&#34;%c %c &#34;</span>,g[<span style="color:#ae81ff">10</span>],g[<span style="color:#ae81ff">30</span>]);
+</span></span><span style="display:flex;"><span>	g.resize(<span style="color:#ae81ff">10</span>);
+</span></span><span style="display:flex;"><span>	printf(<span style="color:#e6db74">&#34;%d &#34;</span>,g.capacity());
+</span></span><span style="display:flex;"><span>	printf(<span style="color:#e6db74">&#34;%d &#34;</span>,g.size())l
+</span></span><span style="display:flex;"><span>	printf(<span style="color:#e6db74">&#34;%c&#34;</span>,g[<span style="color:#ae81ff">9</span>]);
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">//输出15 40 h h 40 10 h，可知resize(t,c)，可以将string扩充到t个字符，多出的空间（是原来没有赋值字符的空间，原来赋值为空格不行）用字符c填充。当t小于capacity()时，无法减小总空间，可以减小有效字符长度。
+</span></span></span></code></pre></div></li>
+<li>
+<p>C++ STL 之 vector 的 capacity 和 size 属性区别</p>
+<p><strong>转载</strong>自：<a href="https://www.runoob.com/cplusplus/cpp-stl-tutorial.html">C++ STL 教程 | 菜鸟教程 (runoob.com)</a>  作者：Jacob</p>
+<p><strong>size</strong> 是当前 vector 容器真实占用的大小，也就是容器当前拥有多少个容器。</p>
+<p><strong>capacity</strong> 是指在发生 realloc 前能允许的最大元素数，即预分配的内存空间。</p>
+<p>当然，这两个属性分别对应两个方法：<strong>resize()</strong> 和 <strong>reserve()</strong>。</p>
+<p>使用 <strong>resize()</strong> 容器内的对象内存空间是真正存在的。</p>
+<p>使用 <strong>reserve()</strong> 仅仅只是修改了 capacity 的值，容器内的对象并没有真实的内存空间(空间是&quot;野&quot;的)。</p>
+<p>此时切记使用 <strong>[]</strong> 操作符访问容器内的对象，很可能出现数组越界的问题。</p>
+<p><strong>下面用例子进行说明：</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> std<span style="color:#f92672">::</span>vector;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> v;
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;v.size() == &#34;</span> <span style="color:#f92672">&lt;&lt;</span> v.size() <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; v.capacity() = &#34;</span> <span style="color:#f92672">&lt;&lt;</span> v.capacity() <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+</span></span><span style="display:flex;"><span>    v.reserve(<span style="color:#ae81ff">10</span>);
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;v.size() == &#34;</span> <span style="color:#f92672">&lt;&lt;</span> v.size() <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; v.capacity() = &#34;</span> <span style="color:#f92672">&lt;&lt;</span> v.capacity() <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+</span></span><span style="display:flex;"><span>    v.resize(<span style="color:#ae81ff">10</span>);
+</span></span><span style="display:flex;"><span>    v.push_back(<span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;v.size() == &#34;</span> <span style="color:#f92672">&lt;&lt;</span> v.size() <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34; v.capacity() = &#34;</span> <span style="color:#f92672">&lt;&lt;</span> v.capacity() <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>运行结果为：(win 10 + VS2010)</p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2018/05/20160417222951238.png" alt="运行结果"></p>
+<p><strong>注：</strong> 对于 <strong>reserve(10)</strong> 后接着直接使用 <strong>[]</strong> 访问越界报错(内存是野的)，大家可以加一行代码试一下，我这里没有贴出来。</p>
+<p>这里直接用**[]**访问，vector 退化为数组，不会进行越界的判断。此时推荐使用 at()，会先进行越界检查。</p>
+<blockquote>
+<p><strong>相关引申：</strong></p>
+<p>针对 capacity 这个属性，STL 中的其他容器，如 list map set deque，由于这些容器的内存是散列分布的，因此不会发生类似 realloc() 的调用情况，因此我们可以认为 capacity 属性针对这些容器是没有意义的，因此设计时这些容器没有该属性。</p>
+<p>在 STL 中，拥有 capacity 属性的容器只有 vector 和 string。</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="修改操作">修改操作</h2>
+<table>
+<thead>
+<tr>
+<th>函数名称</th>
+<th>功能说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>void push_back(char c)</td>
+<td>在字符串后尾插字符c</td>
+</tr>
+<tr>
+<td>string&amp; append (const char* s);</td>
+<td>在字符串后追加一个字符串，这个<code>const char* s</code>可以是string变量名，也可以是字符数组名（即指向数组的指针）</td>
+</tr>
+<tr>
+<td>string&amp; operator+=(const string&amp; str)</td>
+<td>在字符串后追加字符串str</td>
+</tr>
+<tr>
+<td>string&amp; operator+=(const char* s)</td>
+<td>在字符串后追加C个数字符串</td>
+</tr>
+<tr>
+<td>string&amp; operator+=(char c)</td>
+<td>在字符串后追加字符c</td>
+</tr>
+<tr>
+<td>const char* c_str() const</td>
+<td>返回C格式字符串</td>
+</tr>
+<tr>
+<td>size_t find (char c, size_t pos = 0, size_t n)const</td>
+<td>从字符串pos位置开始往后找字符c，返回该字符在字符串中的位置，否则返回string::npos。实际上，字符c也可以是string和char数组，如果是char数组的话，最后一个参数n表示找char数组的前n位。下同。</td>
+</tr>
+<tr>
+<td>size_t rfind(char c, size_t pos = npos)</td>
+<td>从字符串pos位置开始往前找字符c，返回该字符在字符串中的位置，否则返回string::npos</td>
+</tr>
+<tr>
+<td>string substr(size_t pos = 0, size_t n = npos)const</td>
+<td>在str中从pos位置开始，截取n个字符，然后将其返回</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>
+<p>在string尾部追加字符时，<code>s.push_back( c )</code> / <code>s.append(1, c)</code> / <code>s += 'c'</code>三种的实现方式差不多，一般情况下string类的+=操作用的比较多，+=操作不仅可以连接单个字符，还可以连接字符串。</p>
+</li>
+<li>
+<p>对string操作时，如果能够大概预估到放多少字符，可以先通过reserve把空间预留好。</p>
+</li>
+</ol>
+</section>
+
+  
+  
+
+  
+  
+  
+  <nav class="mt-24 flex rounded-lg bg-black/[3%] text-lg dark:bg-white/[8%]">
+    
+    
+    <a
+      class="ml-auto flex w-1/2 items-center justify-end rounded-r-md p-6 pl-3 no-underline hover:bg-black/[2%] dark:hover:bg-white/[3%]"
+      href="https://scncyyc.github.io/posts/stack/"
+      ><span>Stack</span><span class="ml-1.5">→</span></a
+    >
+    
+  </nav>
+  
+
+  
+  
+
+  
+  
+</article>
+
+
+    </main>
+
+    <footer
+  class="opaco mx-auto flex h-[5rem] max-w-3xl items-center px-8 text-[0.9em] opacity-50"
+>
+  <div class="mr-auto">
+    &copy; 2023
+    <a class="link" href="https://scncyyc.github.io/">scncyyc&#39;s blog</a>
+  </div>
+  <a class="link mx-6" href="https://gohugo.io/" rel="noopener" target="_blank"
+    >Powered by Hugo️️</a
+  >️
+  <a
+    class="link"
+    href="https://github.com/nanxiaobei/hugo-paper"
+    rel="noopener"
+    target="_blank"
+    >Theme Paper</a
+  >
+</footer>
+
+  </body>
+</html>
